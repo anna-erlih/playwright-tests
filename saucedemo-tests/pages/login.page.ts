@@ -3,13 +3,17 @@ import { expect, type Locator, type Page } from '@playwright/test';
 export class LoginPage {
     readonly page: Page;
 
+    readonly error: Locator;
     readonly username: Locator;
     readonly password: Locator;
     readonly loginBtn: Locator;
     public readonly loggedInPageTitle: Locator;
 
+
     constructor(page: Page){
         this.page = page;
+
+        this.error = page.getByTestId('error')
         this.username = page.getByTestId('username');
         this.password = page.getByTestId('password');
         this.loginBtn = page.getByTestId('login-button');
