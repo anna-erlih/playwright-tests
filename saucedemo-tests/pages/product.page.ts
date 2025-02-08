@@ -14,7 +14,7 @@ export class ProductPage {
 
     async addItemToCart(itemName: string){
         const itemList = this.item;
-        const item = await itemList.filter({ hasText: itemName });
+        const item = itemList.filter({ hasText: itemName });
         await item.locator('button').click();
     }
 }

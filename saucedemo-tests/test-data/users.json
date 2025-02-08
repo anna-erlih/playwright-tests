@@ -1,6 +1,10 @@
 {
-    "username1": "standard_user",
-    "password1": "secret_sauce",
-    "username2": "",
-    "password2": ""
+    "userValid": {
+        "username": "standard_user",
+        "password": "secret_sauce"
+    },
+    "userInvalid": {
+        "username": "",
+        "password": ""
+    }
 }
