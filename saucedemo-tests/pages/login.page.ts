@@ -7,7 +7,6 @@ export class LoginPage {
     readonly username: Locator;
     readonly password: Locator;
     readonly loginBtn: Locator;
-    public readonly loggedInPageTitle: Locator;
 
 
     constructor(page: Page){
@@ -17,7 +16,7 @@ export class LoginPage {
         this.username = page.getByTestId('username');
         this.password = page.getByTestId('password');
         this.loginBtn = page.getByTestId('login-button');
-        this.loggedInPageTitle = page.getByTestId('title');
+        
     }
 
     async goToLoginPage(){

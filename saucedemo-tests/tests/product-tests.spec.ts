@@ -6,19 +6,14 @@ import usersJson from '../test-data/users.json';
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goToLoginPage();
-});
-
-
-test('Log in successfully', async ({ page }) => {
-  const loginPage = new LoginPage(page);
   await loginPage.logIn(usersJson.userValid.username, usersJson.userValid.password);
   const productPage = new ProductPage(page);
   await expect(productPage.title).toHaveText('Products');
-
 });
 
-test('Log in with locked out user', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.logIn(usersJson.userLocked.username, usersJson.userLocked.password);  
-  await expect(loginPage.error).toHaveText('Epic sadface: Sorry, this user has been locked out.');
+
+test('Add item to cart', async ({ page }) => {
+    const productPage = new ProductPage(page);
+    await productPage.addItemToCart('Sauce Labs Bolt T-Shirt');
+    await expect(productPage.shoppingCartBadge).toHaveText('1');
 });
